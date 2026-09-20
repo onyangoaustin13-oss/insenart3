@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INSENART — Independent African Production Company</title>
+
+  <meta name="description"
+    content="INSENART is an independent African production company creating high-quality, filmmaker-driven films, documentaries, shows, branded content and visual stories rooted in culture, people and society." />
+
+  <meta property="og:title" content="INSENART — Independent African Production Company" />
+  <meta property="og:description" content="Creating shadows you leave in. Filmmaker-driven storytelling." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/logo/Insenart Logo-04.jpg" />
+
+  <link rel="icon" type="image/png" href="images/logo/icon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/variables.css" />
+  <link rel="stylesheet" href="src/styles/base.css" />
+  <link rel="stylesheet" href="src/styles/components.css" />
+  <link rel="stylesheet" href="src/styles/pages.css" />
+  <link rel="stylesheet" href="src/styles/about.css" />
+  <link rel="stylesheet" href="src/styles/inner.css" />
+</head>
+
+<body>
+
+  <!-- App Container Mount Point -->
+  <div id="app"></div>
+
+  <!-- Modal Container Mount Point -->
+  <div id="modal-root"></div>
+
+  <!-- Load Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Protocol Check -->
+  <script>
+    if (window.location.protocol === 'file:') {
+      document.addEventListener('DOMContentLoaded', function () {
+        document.body.innerHTML = `
+          <div style="background-color: #222126; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; text-align: center; padding: 20px;">
+            <div style="max-width: 600px; padding: 40px; border: 1px solid #F66C3A; background: rgba(246, 108, 58, 0.1);">
+              <h1 style="color: #F66C3A; margin-bottom: 20px; font-size: 24px;">⚠️ Environment Error</h1>
+              <p style="margin-bottom: 15px; line-height: 1.5; font-size: 16px;">
+                You are currently viewing this file directly from your computer (using the <strong>file:///</strong> protocol).
+              </p>
+              <p style="margin-bottom: 25px; line-height: 1.5; font-size: 16px; color: #a1a1aa;">
+                Because this website uses modern Javascript ES6 Modules, all modern browsers block it from running offline for security reasons. <strong>This is why you are seeing a blank screen!</strong>
+              </p>
+              <div style="background: #111; padding: 20px; border-radius: 4px; text-align: left;">
+                <h3 style="margin-top: 0; color: #58BED8; font-size: 14px; text-transform: uppercase;">How to fix:</h3>
+                <ol style="margin-bottom: 0; font-size: 15px; line-height: 1.6;">
+                  <li>Open this folder in <strong>Visual Studio Code</strong></li>
+                  <li>Install the extension called <strong>"Live Server"</strong></li>
+                  <li>Click <strong>"Go Live"</strong> in the bottom right corner of VS Code</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    } else {
+      // Add global error handler for other issues
+      window.addEventListener('error', function (e) {
+        if (!document.getElementById('app')?.hasChildNodes()) {
+          console.error("Global crash caught:", e.message);
+          document.body.innerHTML = '<div style="color:white;text-align:center;padding:50px;font-family:sans-serif;"><h1>Crash detected</h1><p>' + e.message + '</p><p>Check Developer Console.</p></div>';
+        }
+      });
+    }
+  </script>
+
+  <!-- Main Application -->
+  <script type="module" src="src/main.js"></script>
+
+</body>
+
+</html>
